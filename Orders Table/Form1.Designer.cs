@@ -202,7 +202,6 @@
             this.label1.Size = new System.Drawing.Size(162, 18);
             this.label1.TabIndex = 4;
             this.label1.Text = "Управление записями";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox1
             // 
@@ -254,7 +253,6 @@
             this.label2.Size = new System.Drawing.Size(96, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Запись:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tabPage2
             // 
@@ -285,7 +283,6 @@
             this.nameLabel.Size = new System.Drawing.Size(44, 20);
             this.nameLabel.TabIndex = 2;
             this.nameLabel.Text = "Имя:";
-            this.nameLabel.Click += new System.EventHandler(this.label3_Click);
             // 
             // idLabel
             // 
