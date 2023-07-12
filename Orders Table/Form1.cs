@@ -35,6 +35,7 @@ namespace Orders_Table
         {
             CreateColomns();
             RefreshDataGrid(dataGridView1);
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void CreateColomns()
@@ -227,6 +228,20 @@ namespace Orders_Table
                 {
                     MessageBox.Show("Копирование невозможно");
                 }
+                finally
+                {
+                    dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                }
+            }
+        }
+
+        private void dataGridView1_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                dataGridView1.ClearSelection();
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
+                dataGridView1[e.ColumnIndex, e.RowIndex].Selected = true;
             }
         }
     }

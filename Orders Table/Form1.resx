@@ -235,13 +235,10 @@
         PdXm80/AfDokTVu+8DfPXv9XCcIPTvjvLQ8YoakAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>132, 17</value>
-  </metadata>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAB3RJREFUeF7tm3lsFFUYwMFbPFCJ9xHF4Il/kRhF46Z7tLsz25buzNACVeQ0xoAg
+        DAAACwwBP0AiyAAAB3RJREFUeF7tm3lsFFUYwMFbPFCJ9xHF4Il/kRhF46Z7tLsz25buzNACVeQ0xoAg
         IgSBUkCEWo6WAq3IkRKhtqFQQBTKJSBHgIAgqGABBUyBch9a2u7z+6bfm84O03a3lO4O9Jd82c3OO77f
         mzdvZnZnWzTTTDOWZ8lBZis4wFIL9rP0xSXso+IS1po23djk7Wdp47axywPXM6aPIRuZf+avbPeKv1l7
         KnpjseQYa5W9h/1uFDfGiM2sqrCE9aRqNwYon7mLHTMTNouhMBsWH2RxVN3ahCrPI207O9+CsZbUTGQS
@@ -276,6 +273,9 @@
         /R8nuZVreP6mxwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 17</value>
+  </metadata>
   <data name="searchPik.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -322,7 +322,7 @@
   <data name="RefreshButton.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAFAAAABQCAYAAACOEfKtAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAC/lJREFUeF7tXHtsU9cZR5P2fj+lTdr7oUmbNk3bH/tjWzdtk9CIfW2z8NrKpiYN
+        DAAACwwBP0AiyAAAC/lJREFUeF7tXHtsU9cZR5P2fj+lTdr7oUmbNk3bH/tjWzdtk9CIfW2z8NrKpiYN
         D6mkFFji+/AFkvBKNwLl0ZJ0LSq0jHUlJfa916EkQMlUILRDI1Bg5VWgLY8EiJ2QknD3/cy5tTHHvjeO
         7RjDT/qkQPwd+/xyzve+HnMP93D3okTd+hFBavmlWwxN98jGKl8g3OENGCe9inHeI+lRt6gNuqTQIH72
         KfpFbyB8zBcwwoKoNbAl7j64RO2nJDVExgEiaGBSbfvl8oa90crGQ6Z/w3Fz/r/OmQu3vG0ubrloLtO6
