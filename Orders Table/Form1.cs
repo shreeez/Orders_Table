@@ -47,6 +47,14 @@ namespace Orders_Table
             dataGridView1.Columns.Add("isNew", string.Empty);
         }
 
+        private void ClearFields()
+        {
+            nameTextBox.Text = "";
+            IdTextBox.Text = "";
+            commentTextBox.Text = "";
+            countTextBox.Text = "";
+        }
+
         private void ReadSingleRow(DataGridView dgw, IDataRecord record)
         {
             dgw.Rows.Add(record.GetInt32(0), record.GetString(1), record.GetString(2), record.GetString(3), record.GetInt32(0), RowState.ModifiedNew);
@@ -97,6 +105,7 @@ namespace Orders_Table
         private void ChangeNoteButton_Click(object sender, EventArgs e)
         {
             Change();
+            ClearFields();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -116,6 +125,7 @@ namespace Orders_Table
         private void RefreshButton_Click(object sender, EventArgs e)
         {
             RefreshDataGrid(dataGridView1);
+            ClearFields();
         }
 
         private void newNoteButton_Click(object sender, EventArgs e)
@@ -156,6 +166,7 @@ namespace Orders_Table
         private void deliteButton_Click(object sender, EventArgs e)
         {
             DeleteRow();
+            ClearFields();
         }
 
         private void Update1()
@@ -197,6 +208,11 @@ namespace Orders_Table
         private void saveButton_Click(object sender, EventArgs e)
         {
             Update1();
+        }
+
+        private void cltarButton1_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
     }
 }

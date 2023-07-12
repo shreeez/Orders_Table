@@ -629,6 +629,7 @@
             this.cltarButton1.Size = new System.Drawing.Size(41, 36);
             this.cltarButton1.TabIndex = 0;
             this.cltarButton1.UseVisualStyleBackColor = false;
+            this.cltarButton1.Click += new System.EventHandler(this.cltarButton1_Click);
             // 
             // tabPage2
             // 
