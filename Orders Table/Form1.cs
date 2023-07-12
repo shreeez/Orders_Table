@@ -214,5 +214,20 @@ namespace Orders_Table
         {
             ClearFields();
         }
+
+        private void копироватьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.GetCellCount(DataGridViewElementStates.Selected) > 0)
+            {
+                try
+                {
+                    Clipboard.SetDataObject(dataGridView1.GetClipboardContent());
+                }
+                catch (System.Runtime.InteropServices.ExternalException)
+                {
+                    MessageBox.Show("Копирование невозможно");
+                }
+            }
+        }
     }
 }
