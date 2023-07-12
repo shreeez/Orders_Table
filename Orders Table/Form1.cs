@@ -71,9 +71,32 @@ namespace Orders_Table
 
         }
 
+        private void Change()
+        {
+            var selectedRowIndex = dataGridView1.CurrentCell.RowIndex;
+
+            var id = dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString();
+            var name = nameTextBox.Text;
+            var order_id = IdTextBox.Text;
+            var comment = commentTextBox.Text;
+            int count;
+            if (dataGridView1.Rows[selectedRowIndex].Cells[0].Value.ToString() != string.Empty)
+            {
+                if(int.TryParse(countTextBox.Text, out count))
+                {
+                    dataGridView1.Rows[selectedRowIndex].SetValues(id, name, order_id, comment, count);
+                    dataGridView1.Rows[selectedRowIndex].Cells[5].Value = RowState.Modified;
+                }
+                else
+                {
+                    MessageBox.Show("Цена должна иметь цифровой формат!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void ChangeNoteButton_Click(object sender, EventArgs e)
         {
-
+            Change();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -93,6 +116,87 @@ namespace Orders_Table
         private void RefreshButton_Click(object sender, EventArgs e)
         {
             RefreshDataGrid(dataGridView1);
+        }
+
+        private void newNoteButton_Click(object sender, EventArgs e)
+        {
+            AddForm addForm = new AddForm();
+            addForm.Show();
+        }
+
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Search(dataGridView1);
+        }
+
+        private void Search(DataGridView dgv)
+        {
+            dgv.Rows.Clear();
+            string searchString = $"SELECT * FROM TestOrders WHERE CONCAT (id, name, order_id, comment, count_of) LIKE '%{searchTextBox.Text}%'";
+            SqlCommand command = new SqlCommand(searchString, dataBase.getSqlConnection());
+            dataBase.openConnection();
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                ReadSingleRow(dgv, reader);
+            }
+
+            reader.Close();
+        }
+        private void DeleteRow()
+        {
+            int index = dataGridView1.CurrentCell.RowIndex;
+
+            dataGridView1.Rows[index].Visible = false;
+
+            dataGridView1.Rows[index].Cells[5].Value = RowState.Deleted;
+        }
+
+        private void deliteButton_Click(object sender, EventArgs e)
+        {
+            DeleteRow();
+        }
+
+        private void Update1()
+        {
+            dataBase.openConnection();
+            for (int index = 0; index < dataGridView1.Rows.Count; index++)
+            {
+                var rowState = (RowState)dataGridView1.Rows[index].Cells[5].Value;
+
+                if (rowState == RowState.Existed) continue;
+
+                if (rowState == RowState.Deleted)
+                {
+                    var id = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value);
+                    var deleteQuery = $"DELETE FROM TestOrders WHERE id = {id}";
+
+                    var command = new SqlCommand(deleteQuery, dataBase.getSqlConnection());
+
+                    command.ExecuteNonQuery();
+                }
+
+                if(rowState == RowState.Modified)
+                {
+                    var id = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                    var name = dataGridView1.Rows[index].Cells[1].Value.ToString();
+                    var orderId = dataGridView1.Rows[index].Cells[2].Value.ToString();
+                    var comment = dataGridView1.Rows[index].Cells[3].Value.ToString();
+                    var count = dataGridView1.Rows[index].Cells[4].Value.ToString();
+
+                    var changeQury = $"UPDATE TestOrders SET name = '{name}', order_id = '{orderId}', comment = '{comment}', count_of = {count} WHERE id = '{id}'";
+
+                    var command = new SqlCommand(changeQury, dataBase.getSqlConnection());
+                    command.ExecuteNonQuery();
+                }
+            }
+            dataBase.closeConnection();
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            Update1();
         }
     }
 }
